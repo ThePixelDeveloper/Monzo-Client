@@ -13,7 +13,7 @@ Install
 -----
 
 ``` bash
-composer require Thepixeldeveloper\Mondo
+composer require thepixeldeveloper/mondo-client
 ```
 
 Quick start
