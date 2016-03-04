@@ -2,7 +2,13 @@ Thepixeldeveloper\Mondo
 =========================
 
 [![Author](http://img.shields.io/badge/author-@colonelrosa-blue.svg)](https://twitter.com/colonelrosa)
+[![Build Status](https://img.shields.io/travis/ThePixelDeveloper/Mondo-Client/master.svg)](https://travis-ci.org/ThePixelDeveloper/Mondo-Client)
+[![Version Status](http://php-eye.com/badge/thepixeldeveloper/mondo-client/tested.svg?style=flat)](http://php-eye.com/badge/thepixeldeveloper/mondo-client/tested.svg?style=flat)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+[![Packagist Version](https://img.shields.io/packagist/v/thepixeldeveloper/mondo-client.svg)](https://packagist.org/packages/thepixeldeveloper/mondo-client)
+[![Total Downloads](https://img.shields.io/packagist/dt/thepixeldeveloper/mondo-client.svg)](https://packagist.org/packages/thepixeldeveloper/mondo-client)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/53bd0d3a-92e1-4730-b92b-6ad98e7d02b4.svg)](https://insight.sensiolabs.com/projects/53bd0d3a-92e1-4730-b92b-6ad98e7d02b4)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ThePixelDeveloper/Mondo-Client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ThePixelDeveloper/Mondo-Client/?branch=master)
 
 A [Mondo Bank](https://getmondo.co.uk/) API Client - https://getmondo.co.uk/docs
 
