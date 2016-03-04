@@ -1,0 +1,4 @@
+suites:
+    mondo_suite:
+        namespace: Thepixeldeveloper\Mondo
+        psr4_prefix: Thepixeldeveloper\Mondo

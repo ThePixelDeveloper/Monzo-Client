@@ -1,0 +1,29 @@
+{
+    "name": "thepixeldeveloper/mondo-client",
+    "description": "A PHP Mondo Bank Client",
+    "keywords": ["mondo", "bank", "api", "client"],
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^6.1"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "^2.4",
+        "vlucas/phpdotenv": "^2.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mathew Davies",
+            "email": "thepixeldeveloper@googlemail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Thepixeldeveloper\\Mondo\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "phpspec run",
+        "desc": "phpspec desc"
+    }
+}
