@@ -9,7 +9,12 @@ namespace Thepixeldeveloper\Mondo\Http;
  */
 class ResponseCodes
 {
-    const MESSAGES = [
+    /**
+     * Http status code to message map.
+     *
+     * @var array
+     */
+    protected $messages = [
         200 => 'All is well.',
         400 => 'Your request has missing arguments or is malformed.',
         401 => 'Your request is not authenticated.',
@@ -31,6 +36,6 @@ class ResponseCodes
      */
     public function getMessage($responseCode)
     {
-        return ResponseCodes::MESSAGES[$responseCode];
+        return $this->messages[$responseCode];
     }
 }
