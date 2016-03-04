@@ -35,9 +35,9 @@ $outputBlock('Accounts', $accounts->getAccounts());
 
 $balance = new Mondo\Client\Balance($client);
 
-//$outputBlock('Balance', $balance->getBalanceForAccountId('...'));
+$outputBlock('Balance', $balance->getBalanceForAccountId('...'));
 
 $transactions = new Mondo\Client\Transactions($client);
 
-//$outputBlock('All Transactions', $transactions->getTransactionsForAccountId('...'));
-//$outputBlock('Specific Transaction', $transactions->getTransaction('...'));
+$outputBlock('All Transactions', $transactions->getTransactionsForAccountId('...'));
+$outputBlock('Specific Transaction', $transactions->getTransaction('...'));
