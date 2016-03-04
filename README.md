@@ -26,10 +26,10 @@ Quick start
 
 ``` php
 // Get a client from the factory.
-$client = (new Mondo\ClientFactory('access_token'))->getClient();
+$client = (new Thepixeldeveloper\Mondo\ClientFactory('access_token'))->getClient();
 
 // Pass the client into the relevant Client class.
-$ping = new Mondo\Client\Ping($client);
+$ping = new Thepixeldeveloper\Mondo\Client\Ping($client);
 
 // Response is of the type \Psr\Http\Message\ResponseInterface
 $response = $ping->whoAmI();
@@ -51,7 +51,7 @@ Accounts
 -----
 
 ``` php
-$accounts = new Mondo\Client\Accounts($client);
+$accounts = new Thepixeldeveloper\Mondo\Client\Accounts($client);
 
 var_dump($accounts->getAccounts()->getBody()->getContents())
 ```
@@ -74,7 +74,7 @@ Balance
 -----
 
 ``` php
-$balance = new Mondo\Client\Balance($client);
+$balance = new Thepixeldeveloper\Mondo\Client\Balance($client);
 
 var_dump($balance->getBalanceForAccountId('...')->getBody()->getContents())
 ```
@@ -93,7 +93,7 @@ Transactions
 **All transactions**
 
 ``` php
-$transactions = new Mondo\Client\Transactions($client);
+$transactions = new Thepixeldeveloper\Mondo\Client\Transactions($client);
 
 var_dump($transactions->getTransactionsForAccountId('...')->getBody()->getContents())
 ```
@@ -126,7 +126,7 @@ var_dump($transactions->getTransactionsForAccountId('...')->getBody()->getConten
 **Specific transaction**
 
 ``` php
-$transactions = new Mondo\Client\Transactions($client);
+$transactions = new Thepixeldeveloper\Mondo\Client\Transactions($client);
 
 var_dump($transactions->getTransaction('...')->getBody()->getContents())
 ```
