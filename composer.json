@@ -4,7 +4,8 @@
     "keywords": ["mondo", "bank", "api", "client"],
     "type": "library",
     "require": {
-        "guzzlehttp/guzzle": "^6.1"
+        "guzzlehttp/guzzle": "^6.1",
+        "jms/serializer": "^1.1"
     },
     "require-dev": {
         "phpspec/phpspec": "^2.4",
