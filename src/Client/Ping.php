@@ -2,7 +2,8 @@
 
 namespace Thepixeldeveloper\Mondo\Client;
 
-use GuzzleHttp\ClientInterface;
+use Thepixeldeveloper\Mondo\MondoClientInterface;
+use Thepixeldeveloper\Mondo\Response;
 
 /**
  * Class Ping
@@ -12,16 +13,18 @@ use GuzzleHttp\ClientInterface;
 class Ping
 {
     /**
-     * @var ClientInterface
+     * Mondo client.
+     *
+     * @var MondoClientInterface
      */
     protected $client;
 
     /**
      * Accounts constructor.
      *
-     * @param ClientInterface $client
+     * @param MondoClientInterface $client
      */
-    public function __construct(ClientInterface $client)
+    public function __construct(MondoClientInterface $client)
     {
         $this->client = $client;
     }
@@ -29,10 +32,13 @@ class Ping
     /**
      * Get details about the current client.
      *
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return Response\Ping\WhoAmI
      */
     public function whoAmI()
     {
-        return $this->client->request('GET', '/ping/whoami');
+        return $this->client->deserializeResponse(
+            $this->client->get('/ping/whoami'),
+            Response\Ping\WhoAmI::class
+        );
     }
 }

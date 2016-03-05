@@ -2,6 +2,8 @@
 
 namespace Thepixeldeveloper\Mondo;
 
+use Psr\Http\Message\ResponseInterface;
+
 /**
  * Interface MondoClientInterface
  *
@@ -15,5 +17,13 @@ interface MondoClientInterface
      *
      * @return mixed
      */
-    public function getAsync($uri, $options = []);
+    public function get($uri, $options = []);
+
+    /**
+     * @param ResponseInterface $data
+     * @param string            $type
+     *
+     * @return object
+     */
+    public function deserializeResponse(ResponseInterface $data, $type);
 }

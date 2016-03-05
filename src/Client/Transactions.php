@@ -2,21 +2,23 @@
 
 namespace Thepixeldeveloper\Mondo\Client;
 
-use GuzzleHttp\ClientInterface;
+use Thepixeldeveloper\Mondo\MondoClientInterface;
 
 class Transactions
 {
     /**
-     * @var ClientInterface
+     * Mondo client.
+     *
+     * @var MondoClientInterface
      */
     protected $client;
 
     /**
      * Accounts constructor.
      *
-     * @param ClientInterface $client
+     * @param MondoClientInterface $client
      */
-    public function __construct(ClientInterface $client)
+    public function __construct(MondoClientInterface $client)
     {
         $this->client = $client;
     }

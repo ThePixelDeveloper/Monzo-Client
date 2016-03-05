@@ -2,7 +2,7 @@
 
 namespace Thepixeldeveloper\Mondo\Client;
 
-use GuzzleHttp\ClientInterface;
+use Thepixeldeveloper\Mondo\MondoClientInterface;
 
 /**
  * Class Balance
@@ -12,16 +12,18 @@ use GuzzleHttp\ClientInterface;
 class Balance
 {
     /**
-     * @var ClientInterface
+     * Mondo client.
+     *
+     * @var MondoClientInterface
      */
     protected $client;
 
     /**
      * Accounts constructor.
      *
-     * @param ClientInterface $client
+     * @param MondoClientInterface $client
      */
-    public function __construct(ClientInterface $client)
+    public function __construct(MondoClientInterface $client)
     {
         $this->client = $client;
     }
@@ -35,7 +37,7 @@ class Balance
      */
     public function getBalanceForAccountId($accountId)
     {
-        return $this->client->request('GET', '/balance', [
+        return $this->client->get('/balance', [
             'query' => [
                 'account_id' => $accountId
             ]

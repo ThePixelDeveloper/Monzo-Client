@@ -2,42 +2,48 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Doctrine\Common\Annotations\AnnotationRegistry;
+use JMS\Serializer\SerializerBuilder;
 use Thepixeldeveloper\Mondo;
+use Thepixeldeveloper\Mondo\MondoClient;
 
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
-$outputBlock = function($title, \GuzzleHttp\Psr7\Response $response) {
+// Ensure JMS Serializer annotations work.
+AnnotationRegistry::registerLoader('class_exists');
+
+$outputBlock = function($title, $value) {
 
     print $title;
     print PHP_EOL;
 
-    $arrayOutput = json_decode($response->getBody()->getContents());
-    $prettyJson  = json_encode($arrayOutput, JSON_PRETTY_PRINT);
-
-    print $prettyJson;
+    print $value;
 
     print PHP_EOL;
     print PHP_EOL;
 };
 
-// Get a client from the factory.
-$client = (new Mondo\ClientFactory(getenv('ACCESS_TOKEN')))
-    ->getClient();
+$guzzleClient = new Mondo\ClientFactory(getenv('ACCESS_TOKEN'));
+$guzzleClient = $guzzleClient->getClient();
+
+$serializer   = SerializerBuilder::create()->build();
+
+$client = new MondoClient($guzzleClient, $serializer);
 
 $ping = new Mondo\Client\Ping($client);
 
-$outputBlock('Who am i?', $ping->whoAmI());
+$outputBlock('Who am i?', $ping->whoAmI()->getUserId());
 
-$accounts = new Mondo\Client\Accounts($client);
-
-$outputBlock('Accounts', $accounts->getAccounts());
-
-$balance = new Mondo\Client\Balance($client);
-
-$outputBlock('Balance', $balance->getBalanceForAccountId('...'));
-
-$transactions = new Mondo\Client\Transactions($client);
-
-$outputBlock('All Transactions', $transactions->getTransactionsForAccountId('...'));
-$outputBlock('Specific Transaction', $transactions->getTransaction('...'));
+//$accounts = new Mondo\Client\Accounts($client);
+//
+//$outputBlock('Accounts', $accounts->getAccounts());
+//
+//$balance = new Mondo\Client\Balance($client);
+//
+//$outputBlock('Balance', $balance->getBalanceForAccountId('...'));
+//
+//$transactions = new Mondo\Client\Transactions($client);
+//
+//$outputBlock('All Transactions', $transactions->getTransactionsForAccountId('...'));
+//$outputBlock('Specific Transaction', $transactions->getTransaction('...'));

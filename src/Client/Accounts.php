@@ -2,7 +2,7 @@
 
 namespace Thepixeldeveloper\Mondo\Client;
 
-use GuzzleHttp\ClientInterface;
+use Thepixeldeveloper\Mondo\MondoClientInterface;
 
 /**
  * Class Accounts
@@ -12,18 +12,18 @@ use GuzzleHttp\ClientInterface;
 class Accounts
 {
     /**
-     * Guzzle client.
+     * Mondo client.
      *
-     * @var ClientInterface
+     * @var MondoClientInterface
      */
     protected $client;
 
     /**
      * Accounts constructor.
      *
-     * @param ClientInterface $client
+     * @param MondoClientInterface $client
      */
-    public function __construct(ClientInterface $client)
+    public function __construct(MondoClientInterface $client)
     {
         $this->client = $client;
     }
@@ -35,6 +35,6 @@ class Accounts
      */
     public function getAccounts()
     {
-        return $this->client->request('GET', '/accounts');
+        return $this->client->get('/accounts');
     }
 }

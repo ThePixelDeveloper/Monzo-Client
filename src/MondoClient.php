@@ -4,6 +4,7 @@ namespace Thepixeldeveloper\Mondo;
 
 use GuzzleHttp\ClientInterface;
 use JMS\Serializer\SerializerInterface;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class MondoClient
@@ -38,10 +39,25 @@ class MondoClient implements MondoClientInterface
      * @param string $uri
      * @param array  $options
      *
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @return \Psr\Http\Message\ResponseInterface
      */
-    public function getAsync($uri, $options = [])
+    public function get($uri, $options = [])
     {
-        return $this->guzzleClient->requestAsync('GET', $uri, $options);
+        return $this->guzzleClient->request('GET', $uri, $options);
+    }
+
+    /**
+     * @param ResponseInterface $data
+     * @param string            $type
+     *
+     * @return array|\JMS\Serializer\scalar|object
+     */
+    public function deserializeResponse(ResponseInterface $data, $type)
+    {
+        return $this->serialiser->deserialize(
+            $data->getBody()->getContents(),
+            $type,
+            'json'
+        );
     }
 }

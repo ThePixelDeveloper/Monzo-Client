@@ -2,6 +2,8 @@
 
 namespace Thepixeldeveloper\Mondo\Response\Ping;
 
+use JMS\Serializer\Annotation as JMS;
+
 /**
  * Class WhoAmI
  *
@@ -13,6 +15,7 @@ class WhoAmI
      * Client authenticated?
      *
      * @var boolean
+     * @JMS\Type("boolean")
      */
     protected $authenticated;
 
@@ -20,6 +23,7 @@ class WhoAmI
      * Client id.
      *
      * @var string
+     * @JMS\Type("string")
      */
     protected $clientId;
 
@@ -27,6 +31,7 @@ class WhoAmI
      * User id.
      *
      * @var string
+     * @JMS\Type("string")
      */
     protected $userId;
 
