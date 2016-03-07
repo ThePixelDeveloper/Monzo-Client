@@ -15,7 +15,7 @@ interface MondoClientInterface
      * @param string $uri
      * @param array  $options
      *
-     * @return mixed
+     * @return ResponseInterface
      */
     public function get($uri, $options = []);
 

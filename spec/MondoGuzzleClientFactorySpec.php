@@ -6,7 +6,7 @@ use Prophecy\Argument;
 use GuzzleHttp\Client;
 use PhpSpec\ObjectBehavior;
 
-class ClientFactorySpec extends ObjectBehavior
+class MondoGuzzleClientFactorySpec extends ObjectBehavior
 {
     function let()
     {
@@ -15,7 +15,7 @@ class ClientFactorySpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Thepixeldeveloper\Mondo\ClientFactory');
+        $this->shouldHaveType('Thepixeldeveloper\Mondo\MondoGuzzleClientFactory');
     }
 
     function it_should_return_the_base_url()

@@ -2,13 +2,13 @@
 
 namespace spec\Thepixeldeveloper\Mondo\Client;
 
-use GuzzleHttp\Client;
 use Prophecy\Argument;
 use PhpSpec\ObjectBehavior;
+use Thepixeldeveloper\Mondo\MondoClientInterface;
 
 class TransactionsSpec extends ObjectBehavior
 {
-    function let(Client $client)
+    function let(MondoClientInterface $client)
     {
         $this->beConstructedWith($client);
     }

@@ -3,12 +3,15 @@
 namespace spec\Thepixeldeveloper\Mondo\Client;
 
 use Prophecy\Argument;
-use GuzzleHttp\Client;
 use PhpSpec\ObjectBehavior;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
+use Thepixeldeveloper\Mondo\Response\Ping\WhoAmI;
+use Thepixeldeveloper\Mondo\MondoClientInterface;
 
 class PingSpec extends ObjectBehavior
 {
-    function let(Client $client)
+    function let(MondoClientInterface $client)
     {
         $this->beConstructedWith($client);
     }
@@ -18,8 +21,12 @@ class PingSpec extends ObjectBehavior
         $this->shouldHaveType('Thepixeldeveloper\Mondo\Client\Ping');
     }
 
-    function it_should_give_me_details_about_who_i_am()
+    function it_should_give_me_details_about_who_i_am(MondoClientInterface $client, ResponseInterface $response)
     {
-        $this->whoAmI();
+        $client->get('/ping/whoami')->willReturn($response);
+
+        $client->deserializeResponse($response, WhoAmI::class)->willReturn(new WhoAmI());
+
+        $this->whoAmI()->shouldHaveType(WhoAmI::class);
     }
 }

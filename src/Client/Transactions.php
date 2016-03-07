@@ -32,7 +32,7 @@ class Transactions
      */
     public function getTransaction($transactionId)
     {
-        return $this->client->request('GET', '/transactions/' . $transactionId);
+        return $this->client->get('/transactions/' . $transactionId);
     }
 
     /**
@@ -44,7 +44,7 @@ class Transactions
      */
     public function getTransactionsForAccountId($accountId)
     {
-        return $this->client->request('GET', '/transactions', [
+        return $this->client->get('/transactions', [
             'query' => ['account_id' => $accountId],
         ]);
     }
@@ -66,7 +66,7 @@ class Transactions
             $metadata = $key;
         }
 
-        return $this->client->request('GET', '/transactions/' . $transactionId, [
+        return $this->client->get('/transactions/' . $transactionId, [
             'body' => ['metadata' => $metadata],
         ]);
     }
@@ -87,7 +87,7 @@ class Transactions
 
         $keys = array_flip($keys);
 
-        return $this->client->request('GET', '/transactions/' . $transactionId, [
+        return $this->client->get('/transactions/' . $transactionId, [
             'body' => ['metadata' => $keys],
         ]);
     }

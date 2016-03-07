@@ -3,12 +3,12 @@
 namespace spec\Thepixeldeveloper\Mondo\Client;
 
 use Prophecy\Argument;
-use GuzzleHttp\Client;
 use PhpSpec\ObjectBehavior;
+use Thepixeldeveloper\Mondo\MondoClientInterface;
 
 class AccountsSpec extends ObjectBehavior
 {
-    function let(Client $client)
+    function let(MondoClientInterface $client)
     {
         $this->beConstructedWith($client);
     }
