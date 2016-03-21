@@ -3,6 +3,7 @@
 namespace Thepixeldeveloper\Mondo\Client;
 
 use Thepixeldeveloper\Mondo\MondoClientInterface;
+use Thepixeldeveloper\Mondo\Response;
 
 /**
  * Class Balance
@@ -33,14 +34,17 @@ class Balance
      *
      * @param string $accountId
      *
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return Response\Balance
      */
     public function getBalanceForAccountId($accountId)
     {
-        return $this->client->get('/balance', [
-            'query' => [
-                'account_id' => $accountId
-            ]
-        ]);
+        return $this->client->deserializeResponse(
+            $this->client->get('/balance', [
+                'query' => [
+                    'account_id' => $accountId
+                ]
+            ]),
+            Response\Balance::class
+        );
     }
 }

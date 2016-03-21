@@ -5,7 +5,6 @@ namespace spec\Thepixeldeveloper\Mondo\Client;
 use Prophecy\Argument;
 use PhpSpec\ObjectBehavior;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
 use Thepixeldeveloper\Mondo\Response\Ping\WhoAmI;
 use Thepixeldeveloper\Mondo\MondoClientInterface;
 

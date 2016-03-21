@@ -4,7 +4,10 @@ namespace spec\Thepixeldeveloper\Mondo\Client;
 
 use Prophecy\Argument;
 use PhpSpec\ObjectBehavior;
+use Psr\Http\Message\ResponseInterface;
 use Thepixeldeveloper\Mondo\MondoClientInterface;
+use Thepixeldeveloper\Mondo\Response\Transactions;
+use Thepixeldeveloper\Mondo\Response\Transactions\Transaction;
 
 class TransactionsSpec extends ObjectBehavior
 {
@@ -18,14 +21,26 @@ class TransactionsSpec extends ObjectBehavior
         $this->shouldHaveType('Thepixeldeveloper\Mondo\Client\Transactions');
     }
 
-    function it_should_return_a_transaction()
+    function it_should_return_a_transaction(MondoClientInterface $client, ResponseInterface $response)
     {
-        $this->getTransaction(123);
+        $client->get('/transactions/123')->willReturn($response);
+
+        $client->deserializeResponse($response, Transaction::class)->willReturn(new Transaction());
+
+        $this->getTransaction(123)->shouldHaveType(Transaction::class);
     }
 
-    function it_should_return_a_list_of_transactions_for_an_account_id()
+    function it_should_return_a_list_of_transactions_for_an_account_id(MondoClientInterface $client, ResponseInterface $response)
     {
-        $this->getTransactionsForAccountId(123);
+        $client->get('/transactions', [
+            'query' => [
+                'account_id' => 123
+            ]
+        ])->willReturn($response);
+
+        $client->deserializeResponse($response, Transactions::class)->willReturn(new Transactions());
+
+        $this->getTransactionsForAccountId(123)->shouldHaveType(Transactions::class);
     }
 
     function it_should_add_a_single_annotation_for_a_transaction()

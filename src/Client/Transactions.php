@@ -3,6 +3,7 @@
 namespace Thepixeldeveloper\Mondo\Client;
 
 use Thepixeldeveloper\Mondo\MondoClientInterface;
+use Thepixeldeveloper\Mondo\Response;
 
 class Transactions
 {
@@ -28,11 +29,14 @@ class Transactions
      *
      * @param string $transactionId
      *
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return Response\Transactions\Transaction
      */
     public function getTransaction($transactionId)
     {
-        return $this->client->get('/transactions/' . $transactionId);
+        return $this->client->deserializeResponse(
+            $this->client->get('/transactions/' . $transactionId),
+            Response\Transactions\Transaction::class
+        );
     }
 
     /**
@@ -40,13 +44,18 @@ class Transactions
      *
      * @param string $accountId
      *
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return Response\Transactions
      */
     public function getTransactionsForAccountId($accountId)
     {
-        return $this->client->get('/transactions', [
-            'query' => ['account_id' => $accountId],
-        ]);
+        return $this->client->deserializeResponse(
+            $this->client->get('/transactions', [
+                'query' => [
+                    'account_id' => $accountId
+                ]
+            ]),
+            Response\Transactions::class
+        );
     }
 
     /**

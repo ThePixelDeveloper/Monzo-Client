@@ -6,6 +6,7 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\SerializerBuilder;
 use Thepixeldeveloper\Mondo;
 use Thepixeldeveloper\Mondo\MondoClient;
+use Thepixeldeveloper\Mondo\MondoGuzzleClientFactory;
 
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
@@ -24,26 +25,25 @@ $outputBlock = function($title, $value) {
     print PHP_EOL;
 };
 
-$guzzleClient = new Mondo\ClientFactory(getenv('ACCESS_TOKEN'));
-$guzzleClient = $guzzleClient->getClient();
+// Generate a Mondo Guzzle client
+$guzzleFactory = new MondoGuzzleClientFactory(getenv('ACCESS_TOKEN'));
+$guzzleClient  = $guzzleFactory->getClient();
 
-$serializer   = SerializerBuilder::create()->build();
-
-$client = new MondoClient($guzzleClient, $serializer);
+// Mondo wrapper around Guzzle.
+$client = new MondoClient($guzzleClient, SerializerBuilder::create()->build());
 
 $ping = new Mondo\Client\Ping($client);
+$outputBlock('Your user ID: ', $ping->whoAmI()->getUserId());
 
-$outputBlock('Who am i?', $ping->whoAmI()->getUserId());
+$accounts  = new Mondo\Client\Accounts($client);
+$accountId = $accounts->getAccounts()->getAccounts()[0]->getId();
+$outputBlock('Your first account ID: ', $accountId);
 
-//$accounts = new Mondo\Client\Accounts($client);
-//
-//$outputBlock('Accounts', $accounts->getAccounts());
-//
-//$balance = new Mondo\Client\Balance($client);
-//
-//$outputBlock('Balance', $balance->getBalanceForAccountId('...'));
-//
-//$transactions = new Mondo\Client\Transactions($client);
-//
-//$outputBlock('All Transactions', $transactions->getTransactionsForAccountId('...'));
-//$outputBlock('Specific Transaction', $transactions->getTransaction('...'));
+$balance = new Mondo\Client\Balance($client);
+$outputBlock('Your balance: ', $balance->getBalanceForAccountId($accountId)->getBalance());
+
+$transactions  = new Mondo\Client\Transactions($client);
+$transactionId = $transactions->getTransactionsForAccountId($accountId)->getTransactions()[0]->getId();
+
+$outputBlock('How many transactions you\'ve made: ', count($transactions->getTransactionsForAccountId($accountId)->getTransactions()));
+$outputBlock('First transaction: ', $transactions->getTransaction($transactionId)->getDescription());

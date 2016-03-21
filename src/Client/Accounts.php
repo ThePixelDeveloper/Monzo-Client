@@ -3,6 +3,7 @@
 namespace Thepixeldeveloper\Mondo\Client;
 
 use Thepixeldeveloper\Mondo\MondoClientInterface;
+use Thepixeldeveloper\Mondo\Response;
 
 /**
  * Class Accounts
@@ -31,10 +32,13 @@ class Accounts
     /**
      * Get a list of accounts for the authorised user.
      *
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return Response\Accounts
      */
     public function getAccounts()
     {
-        return $this->client->get('/accounts');
+        return $this->client->deserializeResponse(
+            $this->client->get('/accounts'),
+            Response\Accounts::class
+        );
     }
 }

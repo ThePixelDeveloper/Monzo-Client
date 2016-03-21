@@ -17,16 +17,6 @@ class AccountSpec extends ObjectBehavior
         $this->getId()->shouldReturn(null);
     }
 
-    function it_should_return_an_account_number()
-    {
-        $this->getAccountNumber()->shouldReturn(null);
-    }
-
-    function it_should_return_a_sort_code()
-    {
-        $this->getSortCode()->shouldReturn(null);
-    }
-
     function it_should_return_a_created_date()
     {
         $this->getCreated()->shouldHaveType(\DateTime::class);

@@ -2,6 +2,8 @@
 
 namespace Thepixeldeveloper\Mondo\Response;
 
+use JMS\Serializer\Annotation as JMS;
+
 /**
  * Class Balance
  *
@@ -13,6 +15,7 @@ class Balance
      * Balance.
      *
      * @var integer
+     * @JMS\Type("integer")
      */
     protected $balance;
 
@@ -20,6 +23,7 @@ class Balance
      * Currency.
      *
      * @var string
+     * @JMS\Type("string")
      */
     protected $currency;
 
@@ -27,6 +31,7 @@ class Balance
      * Spend today.
      *
      * @var integer
+     * @JMS\Type("integer")
      */
     protected $spendToday;
 

@@ -17,20 +17,6 @@ class Account
     protected $id;
 
     /**
-     * Account number.
-     *
-     * @var string
-     */
-    protected $accountNumber;
-
-    /**
-     * Sort code.
-     *
-     * @var integer
-     */
-    protected $sortCode;
-
-    /**
      * Created date.
      *
      * @var \DateTime
@@ -50,22 +36,6 @@ class Account
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAccountNumber()
-    {
-        return $this->accountNumber;
-    }
-
-    /**
-     * @return int
-     */
-    public function getSortCode()
-    {
-        return $this->sortCode;
     }
 
     /**
