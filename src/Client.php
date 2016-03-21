@@ -50,7 +50,7 @@ class Client implements ClientInterface
      * @param ResponseInterface $data
      * @param string            $type
      *
-     * @return array|\JMS\Serializer\scalar|object
+     * @return object|array|scalar
      */
     public function deserializeResponse(ResponseInterface $data, $type)
     {
