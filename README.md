@@ -10,7 +10,7 @@ Thepixeldeveloper\Mondo
 
 A [Mondo Bank](https://getmondo.co.uk/) API Client - https://getmondo.co.uk/docs
 
-This library is an MVP and only supports the basic functionality.
+This library is an MVP and only supports the basic functionality.  
 Doesn't yet support pagination, expansions and file uploads. Pull requests happily accepted.
 
 Install
