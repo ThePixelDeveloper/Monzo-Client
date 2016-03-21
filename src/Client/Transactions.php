@@ -2,7 +2,7 @@
 
 namespace Thepixeldeveloper\Mondo\Client;
 
-use Thepixeldeveloper\Mondo\MondoClientInterface;
+use Thepixeldeveloper\Mondo\ClientInterface;
 use Thepixeldeveloper\Mondo\Response;
 
 class Transactions
@@ -10,16 +10,16 @@ class Transactions
     /**
      * Mondo client.
      *
-     * @var MondoClientInterface
+     * @var ClientInterface
      */
     protected $client;
 
     /**
      * Accounts constructor.
      *
-     * @param MondoClientInterface $client
+     * @param ClientInterface $client
      */
-    public function __construct(MondoClientInterface $client)
+    public function __construct(ClientInterface $client)
     {
         $this->client = $client;
     }

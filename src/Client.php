@@ -2,19 +2,19 @@
 
 namespace Thepixeldeveloper\Mondo;
 
-use GuzzleHttp\ClientInterface;
 use JMS\Serializer\SerializerInterface;
 use Psr\Http\Message\ResponseInterface;
+use GuzzleHttp\ClientInterface as GuzzleClientInterface;
 
 /**
- * Class MondoClient
+ * Class Client
  *
  * @package Thepixeldeveloper\Mondo
  */
-class MondoClient implements MondoClientInterface
+class Client implements ClientInterface
 {
     /**
-     * @var ClientInterface
+     * @var GuzzleClientInterface
      */
     protected $guzzleClient;
 
@@ -24,12 +24,12 @@ class MondoClient implements MondoClientInterface
     protected $serialiser;
 
     /**
-     * MondoClient constructor.
+     * Client constructor.
      *
-     * @param ClientInterface     $guzzleClient
-     * @param SerializerInterface $serialiser
+     * @param GuzzleClientInterface $guzzleClient
+     * @param SerializerInterface   $serialiser
      */
-    public function __construct(ClientInterface $guzzleClient, SerializerInterface $serialiser)
+    public function __construct(GuzzleClientInterface $guzzleClient, SerializerInterface $serialiser)
     {
         $this->guzzleClient = $guzzleClient;
         $this->serialiser = $serialiser;

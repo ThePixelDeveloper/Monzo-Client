@@ -5,11 +5,11 @@ namespace Thepixeldeveloper\Mondo;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * Interface MondoClientInterface
+ * Interface ClientInterface
  *
  * @package Thepixeldeveloper\Mondo
  */
-interface MondoClientInterface
+interface ClientInterface
 {
     /**
      * @param string $uri

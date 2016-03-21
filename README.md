@@ -24,8 +24,8 @@ Quick start
 -----
 
 ``` php
-// Get a client from the factory.
-$client = (new Thepixeldeveloper\Mondo\ClientFactory('access_token'))->getClient();
+// Get an instance of the Guzzle client
+$client = (new Thepixeldeveloper\Mondo\GuzzleClientFactory(getenv('ACCESS_TOKEN'))('access_token'))->getClient();
 
 // Pass the client into the relevant Client class.
 $ping = new Thepixeldeveloper\Mondo\Client\Ping($client);

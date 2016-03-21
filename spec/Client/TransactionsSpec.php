@@ -5,13 +5,13 @@ namespace spec\Thepixeldeveloper\Mondo\Client;
 use Prophecy\Argument;
 use PhpSpec\ObjectBehavior;
 use Psr\Http\Message\ResponseInterface;
-use Thepixeldeveloper\Mondo\MondoClientInterface;
+use Thepixeldeveloper\Mondo\ClientInterface;
 use Thepixeldeveloper\Mondo\Response\Transactions;
 use Thepixeldeveloper\Mondo\Response\Transactions\Transaction;
 
 class TransactionsSpec extends ObjectBehavior
 {
-    function let(MondoClientInterface $client)
+    function let(ClientInterface $client)
     {
         $this->beConstructedWith($client);
     }
@@ -21,7 +21,7 @@ class TransactionsSpec extends ObjectBehavior
         $this->shouldHaveType('Thepixeldeveloper\Mondo\Client\Transactions');
     }
 
-    function it_should_return_a_transaction(MondoClientInterface $client, ResponseInterface $response)
+    function it_should_return_a_transaction(ClientInterface $client, ResponseInterface $response)
     {
         $client->get('/transactions/123')->willReturn($response);
 
@@ -30,7 +30,7 @@ class TransactionsSpec extends ObjectBehavior
         $this->getTransaction(123)->shouldHaveType(Transaction::class);
     }
 
-    function it_should_return_a_list_of_transactions_for_an_account_id(MondoClientInterface $client, ResponseInterface $response)
+    function it_should_return_a_list_of_transactions_for_an_account_id(ClientInterface $client, ResponseInterface $response)
     {
         $client->get('/transactions', [
             'query' => [

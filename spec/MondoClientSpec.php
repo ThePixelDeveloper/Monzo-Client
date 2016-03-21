@@ -7,7 +7,7 @@ use JMS\Serializer\SerializerInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class MondoClientSpec extends ObjectBehavior
+class ClientSpec extends ObjectBehavior
 {
     function let(ClientInterface $client, SerializerInterface $serializer)
     {
@@ -16,6 +16,6 @@ class MondoClientSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Thepixeldeveloper\Mondo\MondoClient');
+        $this->shouldHaveType('Thepixeldeveloper\Mondo\Client');
     }
 }

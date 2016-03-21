@@ -5,12 +5,12 @@ namespace spec\Thepixeldeveloper\Mondo\Client;
 use Prophecy\Argument;
 use PhpSpec\ObjectBehavior;
 use Psr\Http\Message\ResponseInterface;
-use Thepixeldeveloper\Mondo\MondoClientInterface;
+use Thepixeldeveloper\Mondo\ClientInterface;
 use Thepixeldeveloper\Mondo\Response\Balance;
 
 class BalanceSpec extends ObjectBehavior
 {
-    function let(MondoClientInterface $client)
+    function let(ClientInterface $client)
     {
         $this->beConstructedWith($client);
     }
@@ -20,7 +20,7 @@ class BalanceSpec extends ObjectBehavior
         $this->shouldHaveType('Thepixeldeveloper\Mondo\Client\Balance');
     }
 
-    function it_should_get_a_balance_for_an_id(MondoClientInterface $client, ResponseInterface $response)
+    function it_should_get_a_balance_for_an_id(ClientInterface $client, ResponseInterface $response)
     {
         $client->get('/balance', [
             'query' => [

@@ -7,7 +7,7 @@ namespace Thepixeldeveloper\Mondo;
  *
  * @package Thepixeldeveloper\Mondo
  */
-class MondoGuzzleClientFactory
+class GuzzleClientFactory
 {
     /**
      * Base URL.

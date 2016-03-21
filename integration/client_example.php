@@ -5,8 +5,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\SerializerBuilder;
 use Thepixeldeveloper\Mondo;
-use Thepixeldeveloper\Mondo\MondoClient;
-use Thepixeldeveloper\Mondo\MondoGuzzleClientFactory;
+use Thepixeldeveloper\Mondo\Client;
+use Thepixeldeveloper\Mondo\GuzzleClientFactory;
 
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
@@ -26,11 +26,11 @@ $outputBlock = function($title, $value) {
 };
 
 // Generate a Mondo Guzzle client
-$guzzleFactory = new MondoGuzzleClientFactory(getenv('ACCESS_TOKEN'));
+$guzzleFactory = new GuzzleClientFactory(getenv('ACCESS_TOKEN'));
 $guzzleClient  = $guzzleFactory->getClient();
 
 // Mondo wrapper around Guzzle.
-$client = new MondoClient($guzzleClient, SerializerBuilder::create()->build());
+$client = new Client($guzzleClient, SerializerBuilder::create()->build());
 
 $ping = new Mondo\Client\Ping($client);
 $outputBlock('Your user ID: ', $ping->whoAmI()->getUserId());
