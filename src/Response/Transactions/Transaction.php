@@ -2,6 +2,8 @@
 
 namespace Thepixeldeveloper\Mondo\Response\Transactions;
 
+use JMS\Serializer\Annotation as JMS;
+
 /**
  * Class Transaction
  *
@@ -13,6 +15,7 @@ class Transaction
      * Transaction id.
      *
      * @var string
+     * @JMS\Type("string")
      */
     protected $id;
 
@@ -20,6 +23,7 @@ class Transaction
      * Created time.
      *
      * @var \DateTime
+     * @JMS\Type("DateTime")
      */
     protected $created;
 
@@ -27,6 +31,7 @@ class Transaction
      * Description.
      *
      * @var string
+     * @JMS\Type("string")
      */
     protected $description;
 
@@ -34,6 +39,7 @@ class Transaction
      * Amount.
      *
      * @var integer
+     * @JMS\Type("integer")
      */
     protected $amount;
 
@@ -41,6 +47,7 @@ class Transaction
      * Currency.
      *
      * @var string
+     * @JMS\Type("string")
      */
     protected $currency;
 
@@ -55,6 +62,7 @@ class Transaction
      * Notes.
      *
      * @var string
+     * @JMS\Type("string")
      */
     protected $notes;
 
@@ -99,20 +107,6 @@ class Transaction
      * @var \DateTime
      */
     protected $settled;
-
-    /**
-     * Local amount.
-     *
-     * @var integer
-     */
-    protected $localAmount;
-
-    /**
-     * Local currency.
-     *
-     * @var integer
-     */
-    protected $localCurrency;
 
     /**
      * @return string
@@ -216,21 +210,5 @@ class Transaction
     public function getSettled()
     {
         return new \DateTime();
-    }
-
-    /**
-     * @return int
-     */
-    public function getLocalAmount()
-    {
-        return $this->localAmount;
-    }
-
-    /**
-     * @return int
-     */
-    public function getLocalCurrency()
-    {
-        return $this->localCurrency;
     }
 }
