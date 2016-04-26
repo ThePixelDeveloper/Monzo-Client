@@ -72,6 +72,7 @@ class Transaction
      * Metadata.
      *
      * @var array
+     * @JMS\Type("array")
      */
     protected $metadata = [];
 
@@ -79,27 +80,15 @@ class Transaction
      * Balance.
      *
      * @var integer
+     * @JMS\Type("integer")
      */
     protected $accountBalance;
-
-    /**
-     * Attachments.
-     *
-     * @var array
-     */
-    protected $attachments = [];
-
-    /**
-     * Category.
-     *
-     * @var string
-     */
-    protected $category;
 
     /**
      * Is load.
      *
      * @var boolean
+     * @JMS\Type("boolean")
      */
     protected $isLoad;
 
@@ -107,6 +96,7 @@ class Transaction
      * Settled.
      *
      * @var \DateTime
+     * @JMS\Type("DateTime")
      */
     protected $settled;
 
@@ -183,22 +173,6 @@ class Transaction
     }
 
     /**
-     * @return array
-     */
-    public function getAttachments()
-    {
-        return $this->attachments;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
      * @return boolean
      */
     public function isIsLoad()
@@ -211,6 +185,6 @@ class Transaction
      */
     public function getSettled()
     {
-        return new \DateTime();
+        return $this->settled;
     }
 }
