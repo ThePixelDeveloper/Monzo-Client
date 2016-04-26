@@ -2,6 +2,8 @@
 
 namespace Thepixeldeveloper\Mondo\Response\Accounts;
 
+use JMS\Serializer\Annotation as JMS;
+
 /**
  * Class Account
  *
@@ -13,24 +15,29 @@ class Account
      * Account id.
      *
      * @var string
+     * @JMS\Type("string")
      */
     protected $id;
-
-    /**
-     * Created date.
-     *
-     * @var \DateTime
-     */
-    protected $created;
 
     /**
      * Description.
      *
      * @var string
+     * @JMS\Type("string")
      */
     protected $description;
 
     /**
+     * Created date.
+     *
+     * @var \DateTime
+     * @JMS\Type("DateTime")
+     */
+    protected $created;
+
+    /**
+     * Account id.
+     *
      * @return string
      */
     public function getId()
@@ -39,14 +46,18 @@ class Account
     }
 
     /**
+     * Created date.
+     *
      * @return \DateTime
      */
     public function getCreated()
     {
-        return new \DateTime();
+        return $this->created;
     }
 
     /**
+     * Description.
+     *
      * @return string
      */
     public function getDescription()
