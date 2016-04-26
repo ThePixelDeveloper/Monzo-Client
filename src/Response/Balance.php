@@ -36,7 +36,9 @@ class Balance
     protected $spendToday;
 
     /**
-     * @return int
+     * Balance.
+     * 
+     * @return integer
      */
     public function getBalance()
     {
@@ -44,6 +46,8 @@ class Balance
     }
 
     /**
+     * Currency.
+     *
      * @return string
      */
     public function getCurrency()
@@ -52,7 +56,9 @@ class Balance
     }
 
     /**
-     * @return int
+     * Spend today.
+     *
+     * @return integer
      */
     public function getSpendToday()
     {

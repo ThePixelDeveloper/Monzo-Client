@@ -15,12 +15,19 @@
     "authors": [
         {
             "name": "Mathew Davies",
-            "email": "thepixeldeveloper@googlemail.com"
+            "email": "thepixeldeveloper@googlemail.com",
+            "homepage": "http://mathew-davies.co.uk",
+            "role": "Developer"
         }
     ],
     "autoload": {
         "psr-4": {
             "Thepixeldeveloper\\Mondo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\Thepixeldeveloper\\Mondo\\": "spec/"
         }
     },
     "scripts": {

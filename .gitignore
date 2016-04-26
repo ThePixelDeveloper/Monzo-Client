@@ -1,2 +1,5 @@
-/vendor/
+.otto
+.ottoid
+composer.lock
+vendor
 /integration/.env

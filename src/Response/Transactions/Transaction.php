@@ -2,6 +2,9 @@
 
 namespace Thepixeldeveloper\Mondo\Response\Transactions;
 
+use JMS\Serializer\Annotation as JMS;
+use Thepixeldeveloper\Mondo\Response\Merchant;
+
 /**
  * Class Transaction
  *
@@ -13,6 +16,7 @@ class Transaction
      * Transaction id.
      *
      * @var string
+     * @JMS\Type("string")
      */
     protected $id;
 
@@ -20,6 +24,7 @@ class Transaction
      * Created time.
      *
      * @var \DateTime
+     * @JMS\Type("DateTime")
      */
     protected $created;
 
@@ -27,6 +32,7 @@ class Transaction
      * Description.
      *
      * @var string
+     * @JMS\Type("string")
      */
     protected $description;
 
@@ -34,6 +40,7 @@ class Transaction
      * Amount.
      *
      * @var integer
+     * @JMS\Type("integer")
      */
     protected $amount;
 
@@ -41,13 +48,15 @@ class Transaction
      * Currency.
      *
      * @var string
+     * @JMS\Type("string")
      */
     protected $currency;
 
     /**
      * Merchant.
      *
-     * @var string
+     * @var Merchant
+     * @JMS\Type("Thepixeldeveloper\Mondo\Response\Merchant")
      */
     protected $merchant;
 
@@ -55,6 +64,7 @@ class Transaction
      * Notes.
      *
      * @var string
+     * @JMS\Type("string")
      */
     protected $notes;
 
@@ -62,6 +72,7 @@ class Transaction
      * Metadata.
      *
      * @var array
+     * @JMS\Type("array")
      */
     protected $metadata = [];
 
@@ -69,27 +80,15 @@ class Transaction
      * Balance.
      *
      * @var integer
+     * @JMS\Type("integer")
      */
     protected $accountBalance;
-
-    /**
-     * Attachments.
-     *
-     * @var array
-     */
-    protected $attachments = [];
-
-    /**
-     * Category.
-     *
-     * @var string
-     */
-    protected $category;
 
     /**
      * Is load.
      *
      * @var boolean
+     * @JMS\Type("boolean")
      */
     protected $isLoad;
 
@@ -97,22 +96,9 @@ class Transaction
      * Settled.
      *
      * @var \DateTime
+     * @JMS\Type("DateTime")
      */
     protected $settled;
-
-    /**
-     * Local amount.
-     *
-     * @var integer
-     */
-    protected $localAmount;
-
-    /**
-     * Local currency.
-     *
-     * @var integer
-     */
-    protected $localCurrency;
 
     /**
      * @return string
@@ -127,7 +113,7 @@ class Transaction
      */
     public function getCreated()
     {
-        return new \DateTime();
+        return $this->created;
     }
 
     /**
@@ -187,22 +173,6 @@ class Transaction
     }
 
     /**
-     * @return array
-     */
-    public function getAttachments()
-    {
-        return $this->attachments;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
      * @return boolean
      */
     public function isIsLoad()
@@ -215,22 +185,6 @@ class Transaction
      */
     public function getSettled()
     {
-        return new \DateTime();
-    }
-
-    /**
-     * @return int
-     */
-    public function getLocalAmount()
-    {
-        return $this->localAmount;
-    }
-
-    /**
-     * @return int
-     */
-    public function getLocalCurrency()
-    {
-        return $this->localCurrency;
+        return $this->settled;
     }
 }
