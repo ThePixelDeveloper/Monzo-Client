@@ -1,0 +1,18 @@
+application {
+  name = "mondo-client"
+  type = "php"
+}
+
+customization "php" {
+  php_version = "5.6"
+}
+
+project {
+  name = "thepixeldeveloper"
+  infrastructure = "thepixeldeveloper-mondo-client"
+}
+
+infrastructure "thepixeldeveloper-mondo-client" {
+  type = "aws"
+  flavor = "simple"
+}
