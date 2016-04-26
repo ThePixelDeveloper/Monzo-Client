@@ -25,6 +25,11 @@
             "Thepixeldeveloper\\Mondo\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\Thepixeldeveloper\\Mondo\\": "spec/"
+        }
+    },
     "scripts": {
         "test": "phpspec run",
         "desc": "phpspec desc"
