@@ -3,6 +3,7 @@
 namespace Thepixeldeveloper\Mondo\Response\Transactions;
 
 use JMS\Serializer\Annotation as JMS;
+use Thepixeldeveloper\Mondo\Response\Merchant;
 
 /**
  * Class Transaction
@@ -54,7 +55,8 @@ class Transaction
     /**
      * Merchant.
      *
-     * @var string
+     * @var Merchant
+     * @JMS\Type("Thepixeldeveloper\Mondo\Response\Merchant")
      */
     protected $merchant;
 
