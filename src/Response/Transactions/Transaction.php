@@ -113,7 +113,7 @@ class Transaction
      */
     public function getCreated()
     {
-        return new \DateTime();
+        return $this->created;
     }
 
     /**

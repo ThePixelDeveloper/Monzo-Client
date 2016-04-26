@@ -19,7 +19,7 @@ class AccountSpec extends ObjectBehavior
 
     function it_should_return_a_created_date()
     {
-        $this->getCreated()->shouldHaveType(\DateTime::class);
+        $this->getCreated()->shouldReturn(null);
     }
 
     function it_should_return_a_description()

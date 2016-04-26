@@ -19,7 +19,7 @@ class TransactionSpec extends ObjectBehavior
 
     function it_should_return_a_created_date()
     {
-        $this->getCreated()->shouldHaveType(\DateTime::class);
+        $this->getCreated()->shouldReturn(null);
     }
 
     function it_should_return_a_description()
@@ -57,28 +57,8 @@ class TransactionSpec extends ObjectBehavior
         $this->getAccountBalance()->shouldReturn(null);
     }
 
-    function it_should_return_an_array_of_attachments()
-    {
-        $this->getAttachments()->shouldReturn([]);
-    }
-
-    function it_should_return_the_category()
-    {
-        $this->getCategory()->shouldReturn(null);
-    }
-
     function it_should_return_the_settled_date()
     {
-        $this->getSettled()->shouldHaveType(\DateTime::class);
-    }
-
-    function it_should_return_the_local_amount()
-    {
-        $this->getLocalAmount()->shouldReturn(null);
-    }
-
-    function it_should_return_the_local_currency()
-    {
-        $this->getLocalCurrency()->shouldReturn(null);
+        $this->getSettled()->shouldReturn(null);
     }
 }
