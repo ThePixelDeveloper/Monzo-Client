@@ -3,5 +3,5 @@
 .travis.yml export-ignore
 phpspec.yml export-ignore
 /spec export-ignore
-/integration export-ignore
 /.idea export-ignore
+/integration export-ignore
