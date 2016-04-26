@@ -15,7 +15,9 @@
     "authors": [
         {
             "name": "Mathew Davies",
-            "email": "thepixeldeveloper@googlemail.com"
+            "email": "thepixeldeveloper@googlemail.com",
+            "homepage": "http://mathew-davies.co.uk",
+            "role": "Developer"
         }
     ],
     "autoload": {
